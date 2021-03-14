@@ -9,7 +9,7 @@ class ProfileVerifiyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => ProfileVerifyCubit(),
+      create: (context) => ProfileVerifyCubit(context.read(), context.read()),
       child: BlocConsumer<ProfileVerifyCubit, ProfileState>(
         listener: (context, snap) {
           if (snap.success) {
@@ -23,16 +23,23 @@ class ProfileVerifiyView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Verifiy your identity"),
-                Placeholder(
-                  fallbackHeight: 100,
-                  fallbackWidth: 100,
-                ),
+                if (snap.file != null)
+                  Image.file(
+                    snap.file,
+                    height: 200,
+                  )
+                else
+                  Placeholder(
+                    fallbackHeight: 100,
+                    fallbackWidth: 100,
+                  ),
                 IconButton(
                     icon: Icon(Icons.photo),
                     onPressed: () =>
                         context.read<ProfileVerifyCubit>().pickImage()),
                 Text("Your name"),
                 TextField(
+                  controller: context.read<ProfileVerifyCubit>().nameController,
                   decoration:
                       InputDecoration(hintText: "Or just how people now you"),
                 ),

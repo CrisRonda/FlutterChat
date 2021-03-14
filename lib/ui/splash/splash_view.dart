@@ -1,3 +1,4 @@
+import 'package:chat_app/domain/usecases/login_usecase.dart';
 import 'package:chat_app/ui/profile_verify/profile_verify_view.dart';
 import 'package:chat_app/ui/home/home_view.dart';
 import 'package:chat_app/ui/sign_in/sign_in_view.dart';
@@ -10,7 +11,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SplashCubit()..init(),
+      create: (context) => SplashCubit(context.read<LoginUsecase>())..init(),
       child: BlocListener<SplashCubit, SplashState>(
         listener: (context, snap) {
           switch (snap) {

@@ -1,3 +1,4 @@
+import 'package:chat_app/domain/usecases/logout_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsSwitchCubit extends Cubit<bool> {
@@ -6,9 +7,10 @@ class SettingsSwitchCubit extends Cubit<bool> {
 }
 
 class SettingsLogoutCubit extends Cubit<void> {
-  SettingsLogoutCubit() : super(null);
-  void logout() {
-    print("Call to firebase logout");
+  SettingsLogoutCubit(this._logoutUsecase) : super(null);
+  final LogoutUsecase _logoutUsecase;
+  void logout() async {
+    await _logoutUsecase.logout();
     emit(null);
   }
 }

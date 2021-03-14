@@ -30,7 +30,11 @@ class ChannelPage extends StatelessWidget {
     return Scaffold(
       appBar: ChannelHeader(),
       body: Column(
-        children: [Expanded(child: MessageListView()), MessageInput()],
+        children: [
+          Expanded(child: MessageListView()),
+          MessageInput(),
+          Text("Holi")
+        ],
       ),
     );
   }

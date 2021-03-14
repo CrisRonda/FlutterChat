@@ -10,7 +10,7 @@ class SignInCubit extends Cubit<SignInState> {
 
   void signWithFirebase() async {
     // Validate user
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     emit(SignInState.none);
   }
 }

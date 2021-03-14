@@ -1,3 +1,4 @@
+import 'package:chat_app/data/stream_api_repository.dart';
 import 'package:chat_app/domain/models/chat_user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
@@ -9,17 +10,16 @@ class ChatUserState {
 }
 
 class FriendSelectionCubit extends Cubit<List<ChatUserState>> {
-  FriendSelectionCubit() : super([]);
+  FriendSelectionCubit(this._streamApiRepository) : super([]);
 
+  final StreamApiRepository _streamApiRepository;
   List<ChatUserState> get selectedUsers =>
       state.where((user) => user.seleted).toList();
 
   Future<void> getUsers() async {
-    final list = List.generate(
-        14,
-        (index) =>
-            ChatUserState(ChatUser(name: "Item $index", id: index.toString())));
-    emit(list);
+    final chatUsers = (await _streamApiRepository.getChatUsers())
+        .map((e) => ChatUserState(e));
+    emit(chatUsers);
   }
 
   void selectUser(ChatUserState selecteduser) {
@@ -31,7 +31,8 @@ class FriendSelectionCubit extends Cubit<List<ChatUserState>> {
   }
 
   Future<Channel> createFriendChanel(ChatUserState chatUserState) async {
-    print("createFriendChanel...");
+    return await _streamApiRepository
+        .createSimpleChat(chatUserState.chatUser.id);
   }
 }
 
