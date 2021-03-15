@@ -47,4 +47,6 @@ app.*.map.json
 
 
 # Ignore functions
-**/node_module/
+**/node_modules/
+
+**/.env

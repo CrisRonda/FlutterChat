@@ -5,8 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
+import 'package:flutter_config/flutter_config.dart';
 
-void main() {
+void main() async {
+  // env config
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterConfig.loadEnvVariables();
+  // end env config
+
   runApp(MyApp());
 }
 
