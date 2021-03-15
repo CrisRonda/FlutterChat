@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "440944152466",
+    "project_id": "flutterchat-38313",
+    "storage_bucket": "flutterchat-38313.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440944152466:android:90b90d1d597b6943247b4b",
+        "android_client_info": {
+          "package_name": "com.crisronda.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440944152466-0ccr61tknn880jbpfud7r4orlo2toq3h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crisronda.chatapp",
+            "certificate_hash": "8339836a18657595d7462010c2522f10882c8975"
+          }
+        },
+        {
+          "client_id": "440944152466-0dr1na5pkqd2pbj7ib4cp7005b544870.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8LCcsGj0Pv-j7GiSMk7z1bMfxkHbyuow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440944152466-0dr1na5pkqd2pbj7ib4cp7005b544870.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "440944152466-t7v7lgme69f7mmtf85ergqopgsgp05gd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.crisronda.chatapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
