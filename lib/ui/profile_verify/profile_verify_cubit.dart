@@ -20,7 +20,6 @@ class ProfileVerifyCubit extends Cubit<ProfileState> {
   final ProfileSigninUseCase _profileSigninUseCase;
 
   void startChating() async {
-    await Future.delayed(Duration(seconds: 1));
     final file = state.file;
     final name = nameController.text;
     _profileSigninUseCase.verify(ProfileInput(file, name));

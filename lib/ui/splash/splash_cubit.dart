@@ -9,7 +9,7 @@ class SplashCubit extends Cubit<SplashState> {
   final LoginUsecase _loginUsecase;
   void init() async {
     try {
-      await _loginUsecase.validateLogin();
+      final result = await _loginUsecase.validateLogin();
       emit(SplashState.existing_user);
     } on AuthException catch (ex) {
       if (ex.error == AuthErrorCode.not_auth) {

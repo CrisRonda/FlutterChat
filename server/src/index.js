@@ -17,15 +17,22 @@ app.use(
 app.use(bodyParser.json());
 
 app.post("/getToken", (req, res) => {
+  console.log("START: POST /getoken");
   const { userId } = req.body;
+  console.log("/getoken: ", req.body);
+
   try {
     if (userId) {
-      const userToken = client.createUserToken("the-user-id");
+      console.log("/createUserToken: ", req.body);
+
+      const userToken = client.createUserToken(userId);
+      console.log("SUCCCESS: POST /getoken: ", req.body);
       res.status(200).send({ msj: "OK", token: userToken });
     } else {
       res.status(401).send({ error: "userId is required" });
     }
   } catch (error) {
+    console.log("ERROR: POST /getoken", error);
     res.status(400).send({ error });
   }
 });

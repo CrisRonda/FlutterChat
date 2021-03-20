@@ -18,7 +18,8 @@ class FriendSelectionCubit extends Cubit<List<ChatUserState>> {
 
   Future<void> getUsers() async {
     final chatUsers = (await _streamApiRepository.getChatUsers())
-        .map((e) => ChatUserState(e));
+        .map((e) => ChatUserState(e))
+        .toList();
     emit(chatUsers);
   }
 

@@ -20,8 +20,11 @@ class CreateGroupUseCase {
 
   Future<Channel> createGroup(CreateGroupInput input) async {
     final channelId = Uuid().v4();
-    final imageResult =
-        await _uploadStorageRepository.uploadPhoto(input.imageFile, "channels");
+    String imageResult;
+    if (input.imageFile != null) {
+      imageResult = await _uploadStorageRepository.uploadPhoto(
+          input.imageFile, "channels");
+    }
     final channel = await _streamApiRepository.createGroupChat(
         channelId, input.name, input.members,
         image: imageResult);

@@ -1,11 +1,11 @@
 import 'package:chat_app/data/auth_repository.dart';
 import 'package:chat_app/data/image_picker_repository.dart';
-import 'package:chat_app/data/local/auth_local_impl.dart';
-import 'package:chat_app/data/local/image_picker_local_impl.dart';
-import 'package:chat_app/data/local/persisten_storage_local_impl.dart';
-import 'package:chat_app/data/local/stream_api_local_impl.dart';
-import 'package:chat_app/data/local/upload_storage_local_impl.dart';
 import 'package:chat_app/data/persisten_storage_repository.dart';
+import 'package:chat_app/data/prod/auth_impl.dart';
+import 'package:chat_app/data/prod/image_picker_impl.dart';
+import 'package:chat_app/data/prod/persisten_storage_impl.dart';
+import 'package:chat_app/data/prod/stream_api_impl.dart';
+import 'package:chat_app/data/prod/upload_storage_impl.dart';
 import 'package:chat_app/data/stream_api_repository.dart';
 import 'package:chat_app/data/upload_storage_repository.dart';
 import 'package:chat_app/domain/usecases/create_group_usecase.dart';
@@ -18,14 +18,13 @@ import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 List<RepositoryProvider> buildRepositories(StreamChatClient client) {
   return [
     RepositoryProvider<StreamApiRepository>(
-        create: (_) => StreamApiLocalImpl(client)),
+        create: (_) => StreamApiImpl(client)),
     RepositoryProvider<PersistentStorageRepository>(
-        create: (_) => PersistenStorageLocalImpl()),
-    RepositoryProvider<AuthRepository>(create: (_) => AuthLocalImpl()),
-    RepositoryProvider<ImagePickerRepository>(
-        create: (_) => ImagePickerLocalImpl()),
+        create: (_) => PersistenStorageImpl()),
+    RepositoryProvider<AuthRepository>(create: (_) => AuthImpl()),
+    RepositoryProvider<ImagePickerRepository>(create: (_) => ImagePickerImpl()),
     RepositoryProvider<UploadStorageRepository>(
-        create: (_) => UploadStorageLocalImpl()),
+        create: (_) => UploadStorageImpl()),
     RepositoryProvider<ProfileSigninUseCase>(
         create: (context) => ProfileSigninUseCase(
               context.read(),

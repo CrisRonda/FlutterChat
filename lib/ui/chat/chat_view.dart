@@ -33,7 +33,6 @@ class ChannelPage extends StatelessWidget {
         children: [
           Expanded(child: MessageListView()),
           MessageInput(),
-          Text("Holi")
         ],
       ),
     );

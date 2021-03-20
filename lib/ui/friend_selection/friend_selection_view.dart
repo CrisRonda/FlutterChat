@@ -118,13 +118,16 @@ class FrinedSelectionView extends StatelessWidget {
                       itemCount: usersInGroup.length,
                       itemBuilder: (contex, index) {
                         final userInGroup = usersInGroup[index];
+                        print("imagen");
                         return ListTile(
                           onTap: () {
                             _createFriendChannel(contex, userInGroup);
                           },
                           leading: CircleAvatar(
-                            backgroundImage:
-                                NetworkImage(userInGroup.chatUser.image),
+                            backgroundImage: userInGroup.chatUser.image != null
+                                ? NetworkImage(userInGroup.chatUser.image)
+                                : NetworkImage(
+                                    "https://cdn2.iconfinder.com/data/icons/4web-3/139/header-account-image-line-512.png"),
                           ),
                           title: Text(userInGroup.chatUser.name),
                           trailing: isGroup
