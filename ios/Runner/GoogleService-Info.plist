@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>440944152466-t7v7lgme69f7mmtf85ergqopgsgp05gd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.440944152466-t7v7lgme69f7mmtf85ergqopgsgp05gd</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>440944152466-0ccr61tknn880jbpfud7r4orlo2toq3h.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCHC0ymcED-f02wZ31toNYNBT__uYnIjGY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>440944152466</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.crisronda.chatapp</string>
+	<key>PROJECT_ID</key>
+	<string>flutterchat-38313</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutterchat-38313.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:440944152466:ios:6249afefc31aee1e247b4b</string>
+</dict>
+</plist>
