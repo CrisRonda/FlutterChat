@@ -19,16 +19,16 @@ class ProfileSigninUseCase {
   final UploadStorageRepository _uploadStorageRepository;
 
   Future<void> verify(ProfileInput input) async {
-    final auth = await _authRepository.getAuthUser();
-    if (auth.id != null) {
-      final token = await _streamApiRepository.getToken(auth.id);
+    final userAuth = await _authRepository.getAuthUser();
+    if (userAuth.id != null) {
+      final token = await _streamApiRepository.getToken(userAuth.id);
       String image;
       if (input.image != null) {
         image = await _uploadStorageRepository.uploadPhoto(
-            input.image, 'users/${auth.id}');
+            input.image, 'users/${userAuth.id}');
       }
       final result = await _streamApiRepository.connectUser(
-          ChatUser(name: input.name, id: auth.id, image: image), token);
+          ChatUser(name: input.name, id: userAuth.id, image: image), token);
       print(result.toString());
     }
   }

@@ -6,9 +6,6 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
-
-
-
 dependencies:
   flutter:
     sdk: flutter
@@ -25,7 +22,6 @@ dependencies:
   shared_preferences: ^0.5.12+4
   http: 0.12.2
 
-
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -33,6 +29,8 @@ dev_dependencies:
     sdk: flutter
   change_app_package_name: ^0.1.2
 
-
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/

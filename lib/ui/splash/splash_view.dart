@@ -2,6 +2,7 @@ import 'package:chat_app/domain/usecases/login_usecase.dart';
 import 'package:chat_app/ui/profile_verify/profile_verify_view.dart';
 import 'package:chat_app/ui/home/home_view.dart';
 import 'package:chat_app/ui/sign_in/sign_in_view.dart';
+import 'package:chat_app/ui/splash/initial_background_view.dart';
 import 'package:chat_app/ui/splash/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/navigator_utils.dart';
@@ -26,7 +27,20 @@ class SplashView extends StatelessWidget {
           }
         },
         child: Scaffold(
-          backgroundColor: Colors.amber,
+          body: Stack(
+            children: [
+              InitialBackgroundView(),
+              Center(
+                child: Hero(
+                  tag: 'login-hero',
+                  child: Image.asset(
+                    'assets/logo.png',
+                    height: 150,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
